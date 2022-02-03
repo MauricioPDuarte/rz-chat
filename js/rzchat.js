@@ -30,7 +30,8 @@ function carregouPagina() {
 
     document.addEventListener('click', function (event) {
         if (!g_jaTocouSomNotificacao /* && !event.target.classList.contains('menu-link')*/) {
-            setTimeout(function () { tocarSomNotificacao(); /*mostrarNotificacao();*/ }, 20000);
+		g_jaTocouSomNotificacao = true;
+        	setTimeout(function () { tocarSomNotificacao(); /*mostrarNotificacao();*/ }, 20000);
         }
     });
 }
@@ -52,9 +53,9 @@ function mostrarNotificacao() {
 
 function tocarSomNotificacao() {
 	document.getElementById('MyAudioElement').muted = false;
-    document.getElementById('MyAudioElement').play();
+    	document.getElementById('MyAudioElement').play();
 	
-	g_jaTocouSomNotificacao = true;
+	//g_jaTocouSomNotificacao = true;
 };
 
 function enviarMsgWhatsapp() {
