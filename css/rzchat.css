@@ -203,11 +203,15 @@
     
     .rz-chat .block-chat-whatsapp .body-chat-whatsapp button {
         position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         right: 5px;
         top: 5px;
         background: #30534b;
         width: 22px;
         height: 22px;
+        font-size: 10px;
         border-radius: 15px;
         padding: 3px;
         cursor: pointer;
@@ -262,12 +266,21 @@
     background: #f0f0f0;
 }
 
+.rz-chat .block-chat-whatsapp .block-chat-whatsapp-footer form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .rz-chat .block-chat-whatsapp-footer button {
-    line-height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    float: right;
-    height: 48px;
-    width: 48px;
+    /* float: right; */
+    margin: 0 0 0 10px;
+    height: 42px;
+    width: 42px;
     padding: 8px 10px 8px 15px;
     background: #25d366;
     border-radius: 24px;
@@ -276,10 +289,7 @@
     border: none;
 }
 
-.rz-chat .block-chat-whatsapp-footer .campo-whatsapp {
-    width: calc(100% - 60px);
-    float: left;
-}
+.rz-chat .block-chat-whatsapp-footer .campo-whatsapp {}
 
 
 .rz-chat .block-chat-whatsapp-footer .input-texto-whatsapp {
