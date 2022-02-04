@@ -4,10 +4,81 @@ var g_jaTocouSomNotificacao = false;
 document.addEventListener('DOMContentLoaded', carregouPagina, false);
 
 function carregouPagina() {
+	addBtnRzChatNaPagina()
+	atribuirLinksDeConversaoGteg();
+}
 
-    debugger;
+function atribuirLinksDeConversaoGteg() {
+	var gtegWhatsappMovel = document.getElementById('rzchat-gteg-whatsapp-movel').value;
+	var gtegWhatsappWeb = document.getElementById('rzchat-gteg-whatsapp-web').value;
+	var gtegPhone = document.getElementById('rzchat-gteg-phone').value;
+	var gtegEmail = document.getElementById('rzchat-gteg-email').value;
+	
+	if (gtegWhatsappMovel !== '') {
+		atribuirLinkConversaoGtegWhatsappMovel(gtegWhatsappMovel);
+	}
+	
+	if (gtegWhatsappWeb !== '') {
+		atribuirLinkConversaoGtegWhatsappWeb(gtegWhatsappWeb);
+	}
+	
+	if (gtegPhone !== '') {
+		atribuirLinkConversaoGtegPhone(gtegPhone);
+	}
+	
+	if (gtegEmail !== '') {
+		atribuirLinkConversaoGtegEmail(gtegEmail);
+	}
+	
+}
 
-    var btnChatWpp = document.getElementById('btn-rz-chat-wpp');
+function atribuirLinkConversaoGtegWhatsappMovel(linkGteg) {
+	window.addEventListener('DOMContentLoaded', function(){
+		document.querySelector('#rzChatBtnEnviarMsgWppMovel').addEventListener('click', function(){
+		console.log('Whats movel')
+		gtag('event', 'conversion', {'send_to': linkGteg});
+		})
+	});
+}
+
+function atribuirLinkConversaoGtegWhatsappWeb(linkGteg) {
+	window.addEventListener('DOMContentLoaded', function(){
+		document.querySelector('#rzChatBtnEnviarMsgWppWeb').addEventListener('click', function(){
+		console.log('Whats web')
+		gtag('event', 'conversion', {'send_to': linkGteg});
+		})
+	});
+}
+	
+	
+function atribuirLinkConversaoGtegPhone(linkGteg) {
+	window.addEventListener('DOMContentLoaded', function(){
+		document.querySelector('#rzChatBtnPhone').addEventListener('click', function(){
+		console.log('phone')
+		gtag('event', 'conversion', {'send_to': linkGteg});
+		})
+	});
+	
+}
+	
+	
+function atribuirLinkConversaoGtegEmail(linkGteg) {
+	window.addEventListener('DOMContentLoaded', function(){
+		document.querySelector('#rzChatBtnEmail').addEventListener('click', function(){
+		console.log('email')
+		gtag('event', 'conversion', {'send_to': linkGteg});
+		})
+	});
+	
+}
+	
+	
+	
+	
+
+
+function addBtnRzChatNaPagina() {
+	   var btnChatWpp = document.getElementById('btn-rz-chat-wpp');
 
     // Se não encontrar, deve sair da função...
     if (!btnChatWpp) {
@@ -35,7 +106,6 @@ function carregouPagina() {
         }
     });
 }
-
 
 
 function mostrarNotificacao() {
