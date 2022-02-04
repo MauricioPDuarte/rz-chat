@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
 * Plugin Name: Rz Chat - Exclusivo para uso na RzSistemas... 
 * Plugin URI: https://www.virtualmarket.com.br/
@@ -72,6 +72,38 @@ function rz_settings_init() {
 		'pluginPage', 
 		'rz_pluginPage_section' 
 	);
+	
+	add_settings_field( 
+		'rz_input_gteg_whatsapp_mobile', 
+		__( 'Gteg - WhatsApp - Móvel: ', 'rzchat' ), 
+		'rz_input_gteg_whatsapp_mobile_render', 
+		'pluginPage', 
+		'rz_pluginPage_section' 
+	);
+	
+	add_settings_field( 
+		'rz_input_gteg_whatsapp_web', 
+		__( 'Gteg - WhatsApp - Web: ', 'rzchat' ), 
+		'rz_input_gteg_whatsapp_web_render', 
+		'pluginPage', 
+		'rz_pluginPage_section' 
+	);
+	
+	add_settings_field( 
+		'rz_input_gteg_phone', 
+		__( 'Gteg - Telefone: ', 'rzchat' ), 
+		'rz_input_gteg_phone_render', 
+		'pluginPage', 
+		'rz_pluginPage_section' 
+	);
+	
+	add_settings_field( 
+		'rz_input_gteg_email',
+		__( 'Gteg - Email: ', 'rzchat' ), 
+		'rz_input_gteg_email_render', 
+		'pluginPage', 
+		'rz_pluginPage_section' 
+	);
 }
 
 function rz_radio_field_0_render() { 
@@ -82,6 +114,38 @@ function rz_radio_field_0_render() {
 	<br />
 	<br />
 	<input type='radio' name='rz_settings[rz_radio_field_0]' <?php checked( $options['rz_radio_field_0'], 2 ); ?> value='2'>Rz Sistemas
+	<?php
+}
+
+function rz_input_gteg_whatsapp_mobile_render() {
+	$options = get_option( 'rz_settings' );
+	
+	?>
+		<input type='text' name='rz_settings[rz_input_gteg_whatsapp_mobile]' value="<?php echo $options['rz_input_gteg_whatsapp_mobile']?>" />
+	<?php
+}
+
+function rz_input_gteg_whatsapp_web_render() {
+	$options = get_option( 'rz_settings' );
+	
+	?>
+		<input type='text' name='rz_settings[rz_input_gteg_whatsapp_web]' value="<?php echo $options['rz_input_gteg_whatsapp_web']?>" />
+	<?php
+}
+
+function rz_input_gteg_phone_render() {
+	$options = get_option( 'rz_settings' );
+	
+	?>
+		<input type='text' name='rz_settings[rz_input_gteg_phone]' value="<?php echo $options['rz_input_gteg_phone']?>" />
+	<?php
+}
+
+function rz_input_gteg_email_render() {
+	$options = get_option( 'rz_settings' );
+	
+	?>
+		<input type='text' name='rz_settings[rz_input_gteg_email]' value="<?php echo $options['rz_input_gteg_email']?>" />
 	<?php
 }
 
@@ -116,6 +180,12 @@ function add_rz_chat()
 	$classColorHeader = "rzchat-header-color-vm";
 	$classColorBody = "rzchat-body-color-vm";
 	
+	$getWhatsappMovel = $opcoesDoRzChat['rz_input_gteg_whatsapp_mobile'];
+	$getWhatsappWeb = $opcoesDoRzChat['rz_input_gteg_whatsapp_web'];
+	$getPhone = $opcoesDoRzChat['rz_input_gteg_phone'];
+	$getEmail= $opcoesDoRzChat['rz_input_gteg_email'];
+
+	
 	switch($opcoesDoRzChat['rz_radio_field_0']) {
 		case '1':
 			$logo =  plugins_url('assets/imgs/vm-logo.svg', __FILE__ );
@@ -134,7 +204,11 @@ function add_rz_chat()
 	$baseUrl = get_bloginfo('url');
 	
   echo "
-  
+	<input type='hidden' id='rzchat-gteg-whatsapp-movel' value='${getWhatsappMovel}' />
+	<input type='hidden' id='rzchat-gteg-whatsapp-web' value='${getWhatsappWeb}' />
+	<input type='hidden' id='rzchat-gteg-phone' value='${getPhone}' />
+	<input type='hidden' id='rzchat-gteg-email' value='${getEmail}' />
+	
 	<div class='rz-chat'>
     <div class='body-rz-chat' id='body-rz-chat'>
         <div class='body-header-rz-chat {$classColorBody}'>
@@ -146,9 +220,9 @@ function add_rz_chat()
         </div>
         <div class='links-rz-chat'>
             <strong>Escolha uma das opções abaixo:</strong>
-            <a id='contato-telefone-btn-contact' href='${baseUrl}/contato/'>Telefone</a>
-            <a id='contato-whatsapp-btn-contact' target='_blank' href='http://api.whatsapp.com/send?1=pt_BR&phone=5547984673253&text=Olá, gostaria de saber mais sobre os produtos da Rz Sistemas.'>Whatsapp</a>
-            <a href='${baseUrl}/contato/'>Email</a>
+            <a id='rzChatBtnPhone' href='${baseUrl}/contato/'>Telefone</a>
+            <a id='rzChatBtnEnviarMsgWppWeb' target='_blank' href='http://api.whatsapp.com/send?1=pt_BR&phone=5547984673253&text=Olá, gostaria de saber mais sobre os produtos da Rz Sistemas.'>Whatsapp</a>
+            <a id='rzChatBtnEmail' href='${baseUrl}/contato/'>Email</a>
         </div>
     </div>
 	<div class='block-chat-whatsapp' style='display: none;' id='block-chat-whatsapp'>
@@ -166,7 +240,7 @@ function add_rz_chat()
 					<input class='input-texto-whatsapp' id='msg-input-whatsapp' />
 				</div>
 				
-				<button onclick='enviarMsgWhatsapp(); return false'>
+				<button onclick='enviarMsgWhatsapp(); return false' id='rzChatBtnEnviarMsgWppMovel'>
 					<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><path fill='#ffffff' d='M1.101 21.757L23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z'></path></svg>
 				</button>
 			</form>
@@ -185,9 +259,3 @@ function add_rz_chat()
   ";
 }
 ?>
-
-
-
-
-
-
