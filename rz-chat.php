@@ -204,10 +204,10 @@ function add_rz_chat()
 	$baseUrl = get_bloginfo('url');
 	
   echo "
-	<input type='hidden' id='rzchat-gteg-whatsapp-movel' value='${getWhatsappMovel}' />
-	<input type='hidden' id='rzchat-gteg-whatsapp-web' value='${getWhatsappWeb}' />
-	<input type='hidden' id='rzchat-gteg-phone' value='${getPhone}' />
-	<input type='hidden' id='rzchat-gteg-email' value='${getEmail}' />
+	<input type='hidden' id='rzchat-gtag-whatsapp-movel' value='${getWhatsappMovel}' />
+	<input type='hidden' id='rzchat-gtag-whatsapp-web' value='${getWhatsappWeb}' />
+	<input type='hidden' id='rzchat-gtag-phone' value='${getPhone}' />
+	<input type='hidden' id='rzchat-gtag-email' value='${getEmail}' />
 	
 	<div class='rz-chat'>
     <div class='body-rz-chat' id='body-rz-chat'>
