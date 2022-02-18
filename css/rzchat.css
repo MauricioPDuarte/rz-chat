@@ -1,3 +1,7 @@
+.grecaptcha-badge {
+  display: none !important;
+}
+
 .rz-chat {
     position: fixed;
     right: 20px;
