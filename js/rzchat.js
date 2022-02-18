@@ -5,68 +5,68 @@ document.addEventListener('DOMContentLoaded', carregouPagina, false);
 
 function carregouPagina() {
 	addBtnRzChatNaPagina()
-	atribuirLinksDeConversaoGteg();
+	atribuirLinksDeConversaoGtag();
 }
 
-function atribuirLinksDeConversaoGteg() {
-	var gtegWhatsappMovel = document.getElementById('rzchat-gteg-whatsapp-movel').value;
-	var gtegWhatsappWeb = document.getElementById('rzchat-gteg-whatsapp-web').value;
-	var gtegPhone = document.getElementById('rzchat-gteg-phone').value;
-	var gtegEmail = document.getElementById('rzchat-gteg-email').value;
+function atribuirLinksDeConversaoGtag() {
+	var gtagWhatsappMovel = document.getElementById('rzchat-gtag-whatsapp-movel').value;
+	var gtagWhatsappWeb = document.getElementById('rzchat-gtag-whatsapp-web').value;
+	var gtagPhone = document.getElementById('rzchat-gtag-phone').value;
+	var gtagEmail = document.getElementById('rzchat-gtag-email').value;
 	
-	if (gtegWhatsappMovel !== '') {
-		atribuirLinkConversaoGtegWhatsappMovel(gtegWhatsappMovel);
+	if (gtagWhatsappMovel !== '') {
+		atribuirLinkConversaoGtagWhatsappMovel(gtagWhatsappMovel);
 	}
 	
-	if (gtegWhatsappWeb !== '') {
-		atribuirLinkConversaoGtegWhatsappWeb(gtegWhatsappWeb);
+	if (gtagWhatsappWeb !== '') {
+		atribuirLinkConversaoGtagWhatsappWeb(gtagWhatsappWeb);
 	}
 	
-	if (gtegPhone !== '') {
-		atribuirLinkConversaoGtegPhone(gtegPhone);
+	if (gtagPhone !== '') {
+		atribuirLinkConversaoGtagPhone(gtagPhone);
 	}
 	
-	if (gtegEmail !== '') {
-		atribuirLinkConversaoGtegEmail(gtegEmail);
+	if (gtagEmail !== '') {
+		atribuirLinkConversaoGtagEmail(gtagEmail);
 	}
 	
 }
 
-function atribuirLinkConversaoGtegWhatsappMovel(linkGteg) {
+function atribuirLinkConversaoGtagWhatsappMovel(linkGtag) {
 	window.addEventListener('DOMContentLoaded', function(){
 		document.querySelector('#rzChatBtnEnviarMsgWppMovel').addEventListener('click', function(){
 		console.log('Whats movel')
-		gtag('event', 'conversion', {'send_to': linkGteg});
+		gtag('event', 'conversion', {'send_to': linkGtag});
 		})
 	});
 }
 
-function atribuirLinkConversaoGtegWhatsappWeb(linkGteg) {
+function atribuirLinkConversaoGtagWhatsappWeb(linkGtag) {
 	window.addEventListener('DOMContentLoaded', function(){
 		document.querySelector('#rzChatBtnEnviarMsgWppWeb').addEventListener('click', function(){
 		console.log('Whats web')
-		gtag('event', 'conversion', {'send_to': linkGteg});
+		gtag('event', 'conversion', {'send_to': linkGtag});
 		})
 	});
 }
 	
 	
-function atribuirLinkConversaoGtegPhone(linkGteg) {
+function atribuirLinkConversaoGtagPhone(linkGtag) {
 	window.addEventListener('DOMContentLoaded', function(){
 		document.querySelector('#rzChatBtnPhone').addEventListener('click', function(){
 		console.log('phone')
-		gtag('event', 'conversion', {'send_to': linkGteg});
+		gtag('event', 'conversion', {'send_to': linkGtag});
 		})
 	});
 	
 }
 	
 	
-function atribuirLinkConversaoGtegEmail(linkGteg) {
+function atribuirLinkConversaoGtagEmail(linkGtag) {
 	window.addEventListener('DOMContentLoaded', function(){
 		document.querySelector('#rzChatBtnEmail').addEventListener('click', function(){
 		console.log('email')
-		gtag('event', 'conversion', {'send_to': linkGteg});
+		gtag('event', 'conversion', {'send_to': linkGtag});
 		})
 	});
 	
