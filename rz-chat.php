@@ -74,33 +74,33 @@ function rz_settings_init() {
 	);
 	
 	add_settings_field( 
-		'rz_input_gteg_whatsapp_mobile', 
-		__( 'Gteg - WhatsApp - Móvel: ', 'rzchat' ), 
-		'rz_input_gteg_whatsapp_mobile_render', 
+		'rz_input_gtag_whatsapp_mobile', 
+		__( 'Gtag - WhatsApp - Móvel: ', 'rzchat' ), 
+		'rz_input_gtag_whatsapp_mobile_render', 
 		'pluginPage', 
 		'rz_pluginPage_section' 
 	);
 	
 	add_settings_field( 
-		'rz_input_gteg_whatsapp_web', 
-		__( 'Gteg - WhatsApp - Web: ', 'rzchat' ), 
-		'rz_input_gteg_whatsapp_web_render', 
+		'rz_input_gtag_whatsapp_web', 
+		__( 'Gtag - WhatsApp - Web: ', 'rzchat' ), 
+		'rz_input_gtag_whatsapp_web_render', 
 		'pluginPage', 
 		'rz_pluginPage_section' 
 	);
 	
 	add_settings_field( 
-		'rz_input_gteg_phone', 
-		__( 'Gteg - Telefone: ', 'rzchat' ), 
-		'rz_input_gteg_phone_render', 
+		'rz_input_gtag_phone', 
+		__( 'Gtag - Telefone: ', 'rzchat' ), 
+		'rz_input_gtag_phone_render', 
 		'pluginPage', 
 		'rz_pluginPage_section' 
 	);
 	
 	add_settings_field( 
-		'rz_input_gteg_email',
-		__( 'Gteg - Email: ', 'rzchat' ), 
-		'rz_input_gteg_email_render', 
+		'rz_input_gtag_email',
+		__( 'Gtag - Email: ', 'rzchat' ), 
+		'rz_input_gtag_email_render', 
 		'pluginPage', 
 		'rz_pluginPage_section' 
 	);
@@ -117,35 +117,35 @@ function rz_radio_field_0_render() {
 	<?php
 }
 
-function rz_input_gteg_whatsapp_mobile_render() {
+function rz_input_gtag_whatsapp_mobile_render() {
 	$options = get_option( 'rz_settings' );
 	
 	?>
-		<input type='text' name='rz_settings[rz_input_gteg_whatsapp_mobile]' value="<?php echo $options['rz_input_gteg_whatsapp_mobile']?>" />
+		<input type='text' name='rz_settings[rz_input_gtag_whatsapp_mobile]' value="<?php echo $options['rz_input_gtag_whatsapp_mobile']?>" />
 	<?php
 }
 
-function rz_input_gteg_whatsapp_web_render() {
+function rz_input_gtag_whatsapp_web_render() {
 	$options = get_option( 'rz_settings' );
 	
 	?>
-		<input type='text' name='rz_settings[rz_input_gteg_whatsapp_web]' value="<?php echo $options['rz_input_gteg_whatsapp_web']?>" />
+		<input type='text' name='rz_settings[rz_input_gtag_whatsapp_web]' value="<?php echo $options['rz_input_gtag_whatsapp_web']?>" />
 	<?php
 }
 
-function rz_input_gteg_phone_render() {
+function rz_input_gtag_phone_render() {
 	$options = get_option( 'rz_settings' );
 	
 	?>
-		<input type='text' name='rz_settings[rz_input_gteg_phone]' value="<?php echo $options['rz_input_gteg_phone']?>" />
+		<input type='text' name='rz_settings[rz_input_gtag_phone]' value="<?php echo $options['rz_input_gtag_phone']?>" />
 	<?php
 }
 
-function rz_input_gteg_email_render() {
+function rz_input_gtag_email_render() {
 	$options = get_option( 'rz_settings' );
 	
 	?>
-		<input type='text' name='rz_settings[rz_input_gteg_email]' value="<?php echo $options['rz_input_gteg_email']?>" />
+		<input type='text' name='rz_settings[rz_input_gtag_email]' value="<?php echo $options['rz_input_gtag_email']?>" />
 	<?php
 }
 
@@ -180,10 +180,10 @@ function add_rz_chat()
 	$classColorHeader = "rzchat-header-color-vm";
 	$classColorBody = "rzchat-body-color-vm";
 	
-	$getWhatsappMovel = $opcoesDoRzChat['rz_input_gteg_whatsapp_mobile'];
-	$getWhatsappWeb = $opcoesDoRzChat['rz_input_gteg_whatsapp_web'];
-	$getPhone = $opcoesDoRzChat['rz_input_gteg_phone'];
-	$getEmail= $opcoesDoRzChat['rz_input_gteg_email'];
+	$getWhatsappMovel = $opcoesDoRzChat['rz_input_gtag_whatsapp_mobile'];
+	$getWhatsappWeb = $opcoesDoRzChat['rz_input_gtag_whatsapp_web'];
+	$getPhone = $opcoesDoRzChat['rz_input_gtag_phone'];
+	$getEmail= $opcoesDoRzChat['rz_input_gtag_email'];
 
 	
 	switch($opcoesDoRzChat['rz_radio_field_0']) {
